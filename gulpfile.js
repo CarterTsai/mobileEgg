@@ -90,7 +90,7 @@ gulp.task('clean', function(cb){
 });
 
 gulp.task('server', ['browserSync'], function(){
-	gulp.start(['copy', 'sass']);
+	gulp.start(['browserify', 'sass', 'copy']);
 });
 
 gulp.task('build', ['dist:copy', 'dist:css']);
