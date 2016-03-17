@@ -8,6 +8,10 @@ var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
 
+//react
+var browserify = require('browserify');
+var babelify = require('babelify');
+var source = require('vinyl-source-stream');
 
 var config = {
 	app: "app",
@@ -15,6 +19,17 @@ var config = {
 	dest: "dest"
 };
 
+//react task
+gulp.task('browserify', function(){
+	browserify(config.app + "/jsx/app.jsx", {debug: true})
+		.transform(babelify,{presets: ["es2015","react"]})
+		.bundle()
+		.on("error", function (err) { console.log("Error : " + err.message); })
+		.pipe(source("bundle.js"))
+		.pipe(gulp.dest(config.temp+"/js"));
+});
+
+//server task
 gulp.task('browserSync', ['clean'], function() {
     browserSync.init({
         server: {
@@ -25,8 +40,9 @@ gulp.task('browserSync', ['clean'], function() {
 	return gulp.watch([
 				config.app + '/*.html',
 				config.app + '/js/*.js',
+				config.app + '/jsx/{*, */*, */*/*}.jsx',
 				config.app + '/scss/{*, */*, */*/*}.scss'
-			], ['copy', 'sass']).on("change", reload);
+			], ['browserify', 'sass', 'copy']).on("change", reload);
 });
 
 
@@ -62,16 +78,16 @@ gulp.task('dist:css', function(){
 gulp.task('dist:copy', function(){
 	return gulp.src([
 					config.temp + '/*.html',
-					config.temp + '/js/*.js'
+					config.temp + '/js/*.js',
 				], { base: config.temp })
 			   .pipe(gulp.dest(config.dest));
 });
+
 
 //clean task
 gulp.task('clean', function(cb){
     return del(['tmp', 'dest'], {force: true, read: false}, cb);
 });
-
 
 gulp.task('server', ['browserSync'], function(){
 	gulp.start(['copy', 'sass']);
