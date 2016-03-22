@@ -20,13 +20,14 @@ var config = {
 };
 
 //react task
-gulp.task('browserify', function(){
-	browserify(config.app + "/jsx/app.jsx", {debug: true})
+gulp.task('react-build', function(){
+
+	browserify({entries: config.app + '/jsx/app.jsx', extensions: ['.jsx'], debug: true})
 		.transform(babelify,{presets: ["es2015","react"]})
 		.bundle()
 		.on("error", function (err) { console.log("Error : " + err.message); })
 		.pipe(source("bundle.js"))
-		.pipe(gulp.dest(config.temp+"/js"));
+		.pipe(gulp.dest(config.temp));
 });
 
 //server task
@@ -42,7 +43,7 @@ gulp.task('browserSync', ['clean'], function() {
 				config.app + '/js/*.js',
 				config.app + '/jsx/{*, */*, */*/*}.jsx',
 				config.app + '/scss/{*, */*, */*/*}.scss'
-			], ['browserify', 'sass', 'copy']).on("change", reload);
+			], ['react-build', 'sass', 'copy']).on("change", reload);
 });
 
 
@@ -90,7 +91,7 @@ gulp.task('clean', function(cb){
 });
 
 gulp.task('server', ['browserSync'], function(){
-	gulp.start(['browserify', 'sass', 'copy']);
+	gulp.start(['react-build', 'sass', 'copy']);
 });
 
 gulp.task('build', ['dist:copy', 'dist:css']);

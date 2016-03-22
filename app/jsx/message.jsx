@@ -1,9 +1,16 @@
-import React from 'react';
+class MyLabel extends React.Component {
 
-class message extends React.Component {
-  render() {
-    return <h1>Hello, world!</h1>;
-  }
+    render(){
+        return (
+          <div className='test'>
+            <input type="text" value="VINCENT"/>
+            <h1 className="hello">Hello!!!</h1>
+          </div>
+        );
+    }
+  // render() {
+  //     return <h1> Hello World!!!</h1>;
+  // }
 }
 
-export default message;
+export default MyLabel;

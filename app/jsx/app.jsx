@@ -1,9 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-import message from './message.jsx';
-
+import MyLabel from "./message.jsx";
 ReactDOM.render(
-  <message />,
-  document.getElementById('main')
+    <MyLabel />,
+    document.getElementById('app')
 );
