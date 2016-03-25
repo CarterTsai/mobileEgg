@@ -22,7 +22,7 @@ var config = {
 //react task
 gulp.task('react-build', function(){
 
-	browserify({entries: config.app + '/jsx/app.jsx', extensions: ['.jsx'], debug: true})
+	browserify({entries: config.app + '/app.js', extensions: ['.js'], debug: true})
 		.transform(babelify,{presets: ["es2015","react"]})
 		.bundle()
 		.on("error", function (err) { console.log("Error : " + err.message); })
@@ -41,7 +41,7 @@ gulp.task('browserSync', ['clean'], function() {
 	return gulp.watch([
 				config.app + '/*.html',
 				config.app + '/js/*.js',
-				config.app + '/jsx/{*, */*, */*/*}.jsx',
+				config.app + '/*/{*, */*, */*/*}.js',
 				config.app + '/scss/{*, */*, */*/*}.scss'
 			], ['react-build', 'sass', 'copy']).on("change", reload);
 });
