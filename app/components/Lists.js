@@ -1,7 +1,7 @@
 import React from 'react';
 import MessageBox from './MessageBox';
 
-var Lists = React.createClass({
+var Lists = React.createClass({    
   render: function() {
     return (
         <div>
