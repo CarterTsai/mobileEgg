@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import MessageBox from './MessageBox';
-import AppStore from '../stores/testStore';
+import AppStore from '../stores/AppStore';
 import EventButton from './EventButton';
 
 function getTodoState() {

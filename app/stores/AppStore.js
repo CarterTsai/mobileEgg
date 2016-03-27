@@ -1,5 +1,5 @@
 import AppDispatcher from '../dispatcher/AppDispatcher';
-import AppConstants from '../constants/appConstants';
+import AppConstants from '../constants/AppConstants';
 import objectAssign from 'react/lib/Object.assign';
 import EventEmitter from 'events';
 
