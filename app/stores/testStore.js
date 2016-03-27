@@ -6,7 +6,7 @@ import EventEmitter from 'events';
 var CHANGE_EVENT = 'change';
 
 var _store = {
-	list: []
+	list: ['Carter']
 };
 
 var add = function(item) {

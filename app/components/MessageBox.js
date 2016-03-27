@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import Label from './Label'
 
 class MessageBox extends React.Component {
     constructor(props) {
@@ -8,7 +9,8 @@ class MessageBox extends React.Component {
     render() {
         return (
             <div>
-             Hello !!! {this.props.message}
+                <input type="checkbox" />
+                <Label name={this.props.message[0]}></Label>
             </div>
         );
     }
