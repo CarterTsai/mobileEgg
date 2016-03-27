@@ -5,6 +5,26 @@ body {
 	padding: 0;
 
 	h1 {
-	
+
 	}
+
+	.lable {
+		border: 1px solid #ccc;
+		padding: 5px;
+	}
+
+	.lable > span {
+		margin-left: 5px;
+		margin-right: 5px;
+		font-size: 1.2em;
+	}
+
+	.lable > input[type='checkbox'] {
+		margin-left: 5px;
+		margin-right: 5px;
+		width: 20px;
+		height: 20px;
+		border: 1px solid #ccc;
+	}
+
 }

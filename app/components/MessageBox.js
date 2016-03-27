@@ -8,16 +8,18 @@ class MessageBox extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="lable">
+                <span>{this.props.key}</span>
                 <input type="checkbox" />
-                <Label name={this.props.message[0]}></Label>
+                <Label name={this.props.message}></Label>
             </div>
         );
     }
 }
 
 MessageBox.propTypes = {
-    message: PropTypes.array,
+    message: PropTypes.string,
+    key: PropTypes.number
 };
 
 export default MessageBox;
