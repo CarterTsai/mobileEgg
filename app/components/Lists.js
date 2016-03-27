@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import MessageBox from './MessageBox';
+import AppStore from '../stores/testStore'
 
-var Lists = React.createClass({    
-  render: function() {
-    return (
-        <div>
-            <MessageBox message="John" />
-        </div>
-    );
-  }
-});
+function getTodoState() {
+    return {
+        allList: AppStore.getAll()
+    };
+}
 
-module.exports = Lists;
+class Lists extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = getTodoState();
+    }
+
+    render() {
+        return (
+            <div>
+                <MessageBox message={this.state.allList} />
+            </div>
+        );
+    }
+}
+
+export default Lists;

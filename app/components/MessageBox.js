@@ -3,7 +3,6 @@ import React, {PropTypes} from 'react';
 class MessageBox extends React.Component {
     constructor(props) {
         super(props);
-
     }
 
     render() {
@@ -16,7 +15,7 @@ class MessageBox extends React.Component {
 }
 
 MessageBox.propTypes = {
-    message: PropTypes.string
+    message: PropTypes.array,
 };
 
 export default MessageBox;
