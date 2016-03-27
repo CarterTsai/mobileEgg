@@ -1,11 +1,24 @@
 body {
-	background: #ececec;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
+	background: #ececec;
 	margin: 0;
 	padding: 0;
 
 	h1 {
 
+	}
+
+	#app {
+		width:1024px;
+		height: 768px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: #f1f1f1;
+		border: 1px solid #000;
 	}
 
 	.lable {
@@ -27,4 +40,8 @@ body {
 		border: 1px solid #ccc;
 	}
 
+	.listBox {
+		width: 300px;
+		height: 100%;
+	}
 }

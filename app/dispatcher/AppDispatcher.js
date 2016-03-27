@@ -1,5 +1,5 @@
 import Flux from 'flux';
-import ToDoConstants from '../constants/AppConstants';
+import AppConstants from '../constants/AppConstants';
 import assign from 'react/lib/Object.assign';
 
 let Dispatcher = assign(new Flux.Dispatcher(), {

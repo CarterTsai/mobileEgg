@@ -9,7 +9,7 @@ class MessageBox extends React.Component {
     render() {
         return (
             <div className="lable">
-                <span>{this.props.key}</span>
+                <span>{this.props.num}</span>
                 <input type="checkbox" />
                 <Label name={this.props.message}></Label>
             </div>
@@ -19,7 +19,7 @@ class MessageBox extends React.Component {
 
 MessageBox.propTypes = {
     message: PropTypes.string,
-    key: PropTypes.number
+    num: PropTypes.number
 };
 
 export default MessageBox;

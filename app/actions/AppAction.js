@@ -1,4 +1,4 @@
-import AppDispatcher from '../dispatchers/AppDispatcher';
+import AppDispatcher from '../dispatcher/AppDispatcher';
 import AppConstants from '../constants/AppConstants';
 
 var AppAction = {
